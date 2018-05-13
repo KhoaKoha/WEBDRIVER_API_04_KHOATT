@@ -30,6 +30,11 @@ public class Topic_00_TestcaseTemplate {
 		
 	}
 	
+	@Test
+	public void TC_03() {
+		
+	}
+	
 	@AfterClass
 	public void afterClass() {
 		// quit browser
