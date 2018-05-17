@@ -15,8 +15,7 @@ public class Topic_02_Exercise_XpathUse {
 	@BeforeClass
 	public void beforeClass() {
 		
-		// System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
-		// driver = new ChromeDriver();
+		
 		
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
