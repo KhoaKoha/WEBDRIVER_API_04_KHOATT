@@ -4,20 +4,21 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import java.util.Random;
 
 public class Topic_02_Exercise_XpathUse {
 	WebDriver driver;
 
 	@BeforeClass
 	public void beforeClass() {
-		
-		
-		
-		driver = new FirefoxDriver();
+
+		System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("http://live.guru99.com/");
@@ -65,10 +66,28 @@ public class Topic_02_Exercise_XpathUse {
 
 	}
 
+	@Test
+	public void TC_04_Create_Account_Successfully() {
+
+		driver.findElement(By.xpath("//div[@class='footer']//a[contains(text(),'My Account')]")).click();
+		driver.findElement(By.xpath("//a[contains(@title,'Create an Account')]")).click();
+		driver.findElement(By.id("firstname")).sendKeys("KhoaKoha");
+		driver.findElement(By.name("middlename")).sendKeys("Tester");
+		driver.findElement(By.name("lastname")).sendKeys("abcdef");
+		Random ranNum = new Random();
+		int ranEmailNum = ranNum.nextInt(100) + 1;
+		driver.findElement(By.id("email_address")).sendKeys("tester" + ranEmailNum + "@gmail.com");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("12345678");
+		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("12345678");
+		driver.findElement(By.xpath("//form[@id='form-validate']//button[@class='button']")).click();
+		
+		
+	}
+
 	@AfterClass
 	public void afterClass() {
-		
+
 		// quit browser
 		driver.quit();
-			}
+	}
 }
