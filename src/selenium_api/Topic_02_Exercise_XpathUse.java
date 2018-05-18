@@ -36,7 +36,7 @@ public class Topic_02_Exercise_XpathUse {
 		Assert.assertEquals("This is a required field.", emailErrorMsg);
 
 		String passErroMsg = driver.findElement(By.xpath("//div[@class='validation-advice']")).getText();
-		Assert.assertEquals("This is a required field.", passErroMsg);
+		Assert.assertEquals(passErroMsg, "This is a required field.");
 
 	}
 
@@ -49,7 +49,7 @@ public class Topic_02_Exercise_XpathUse {
 		driver.findElement(By.name("send")).click();
 
 		String emailError = driver.findElement(By.xpath("//div[@id='advice-validate-email-email']")).getText();
-		Assert.assertEquals("Please enter a valid email address. For example johndoe@domain.com.", emailError);
+		Assert.assertEquals(emailError, "Please enter a valid email address. For example johndoe@domain.com.");
 
 	}
 
@@ -62,7 +62,7 @@ public class Topic_02_Exercise_XpathUse {
 		driver.findElement(By.xpath("//button[@class='button']")).click();
 
 		String passwordError = driver.findElement(By.xpath("//div[@id='advice-validate-password-pass']")).getText();
-		Assert.assertEquals("Please enter 6 or more characters without leading or trailing spaces.", passwordError);
+		Assert.assertEquals(passwordError, "Please enter 6 or more characters without leading or trailing spaces.");
 
 	}
 
@@ -80,8 +80,19 @@ public class Topic_02_Exercise_XpathUse {
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("12345678");
 		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("12345678");
 		driver.findElement(By.xpath("//form[@id='form-validate']//button[@class='button']")).click();
+		String regSuccess = driver
+				.findElement(By.xpath("//span[contains(.,'Thank you for registering with Main Website Store.')]"))
+				.getText();
+		Assert.assertEquals(regSuccess, "Thank you for registering with Main Website Store.");
+		driver.findElement(By.xpath(".//div[@class='skip-links']//span[contains(text(),'Account')]")).click();
+		driver.findElement(By.xpath(".//div[@id='header-account']//a[@title='Log Out']")).click();
 		
-		
+		String homePageTitle = driver.getTitle();
+		Assert.assertEquals("Magento Commerce", homePageTitle);
+
+		String homePageURL = driver.getCurrentUrl();
+		Assert.assertEquals("http://live.guru99.com/index.php/customer/account/logoutSuccess/", homePageURL);
+
 	}
 
 	@AfterClass
