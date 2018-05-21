@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="25879" started-at="2018-05-21T16:59:38Z" finished-at="2018-05-21T17:00:04Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="25879" started-at="2018-05-21T16:59:38Z" finished-at="2018-05-21T17:00:04Z">
+      <class name="selenium_api.Topic_03_Exercise_Browser_WebElement">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@c1fdc4]" name="beforeClass" is-config="true" duration-ms="22433" started-at="2018-05-21T23:59:38Z" finished-at="2018-05-22T00:00:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="TC_01_Login_Empty()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@c1fdc4]" name="TC_01_Login_Empty" duration-ms="1977" started-at="2018-05-22T00:00:01Z" finished-at="2018-05-22T00:00:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_01_Login_Empty -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@c1fdc4]" name="afterClass" is-config="true" duration-ms="1429" started-at="2018-05-22T00:00:03Z" finished-at="2018-05-22T00:00:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- selenium_api.Topic_03_Exercise_Browser_WebElement -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.Random;
+import java.util.UUID;
 
 public class Topic_02_Exercise_XpathUse {
 	WebDriver driver;
@@ -76,7 +77,10 @@ public class Topic_02_Exercise_XpathUse {
 		driver.findElement(By.name("lastname")).sendKeys("abcdef");
 		Random ranNum = new Random();
 		int ranEmailNum = ranNum.nextInt(100) + 1;
-		driver.findElement(By.id("email_address")).sendKeys("tester" + ranEmailNum + "@gmail.com");
+		
+		String ranString = UUID.randomUUID().toString();
+		
+		driver.findElement(By.id("email_address")).sendKeys(ranString + ranEmailNum + "@gmail.com");
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("12345678");
 		driver.findElement(By.xpath("//input[@id='confirmation']")).sendKeys("12345678");
 		driver.findElement(By.xpath("//form[@id='form-validate']//button[@class='button']")).click();
