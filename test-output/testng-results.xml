@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25879" started-at="2018-05-21T16:59:38Z" finished-at="2018-05-21T17:00:04Z">
+  <suite name="Default suite" duration-ms="10397" started-at="2018-05-22T05:22:26Z" finished-at="2018-05-22T05:22:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25879" started-at="2018-05-21T16:59:38Z" finished-at="2018-05-21T17:00:04Z">
+    <test name="Default test" duration-ms="10397" started-at="2018-05-22T05:22:26Z" finished-at="2018-05-22T05:22:36Z">
       <class name="selenium_api.Topic_03_Exercise_Browser_WebElement">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@c1fdc4]" name="beforeClass" is-config="true" duration-ms="22433" started-at="2018-05-21T23:59:38Z" finished-at="2018-05-22T00:00:01Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@53fd30]" name="beforeClass" is-config="true" duration-ms="2583" started-at="2018-05-22T12:22:26Z" finished-at="2018-05-22T12:22:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="TC_01_Login_Empty()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@c1fdc4]" name="TC_01_Login_Empty" duration-ms="1977" started-at="2018-05-22T00:00:01Z" finished-at="2018-05-22T00:00:03Z">
+        <test-method status="PASS" signature="TC_01_Check_Elements_Displayed()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@53fd30]" name="TC_01_Check_Elements_Displayed" duration-ms="3987" started-at="2018-05-22T12:22:28Z" finished-at="2018-05-22T12:22:32Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_01_Login_Empty -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@c1fdc4]" name="afterClass" is-config="true" duration-ms="1429" started-at="2018-05-22T00:00:03Z" finished-at="2018-05-22T00:00:04Z">
+        </test-method> <!-- TC_01_Check_Elements_Displayed -->
+        <test-method status="PASS" signature="TC_02_Check_Element_Enabled_andPrint()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@53fd30]" name="TC_02_Check_Element_Enabled_andPrint" duration-ms="2028" started-at="2018-05-22T12:22:32Z" finished-at="2018-05-22T12:22:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_02_Check_Element_Enabled_andPrint -->
+        <test-method status="PASS" signature="TC_03_Check_Recheck_IsSelectedElements()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@53fd30]" name="TC_03_Check_Recheck_IsSelectedElements" duration-ms="983" started-at="2018-05-22T12:22:34Z" finished-at="2018-05-22T12:22:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_03_Check_Recheck_IsSelectedElements -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:selenium_api.Topic_03_Exercise_Browser_WebElement@53fd30]" name="afterClass" is-config="true" duration-ms="800" started-at="2018-05-22T12:22:35Z" finished-at="2018-05-22T12:22:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
