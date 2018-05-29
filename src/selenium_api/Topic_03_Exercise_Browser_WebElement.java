@@ -32,7 +32,12 @@ public class Topic_03_Exercise_Browser_WebElement {
 		driver = new ChromeDriver();
 
 	}
-
+	
+	public boolean isControlDisplayed (String xpathName) {
+		WebElement element = driver.findElement(By.xpath(xpathName));
+		return element.isDisplayed();
+	
+}
 	@Test
 	public void TC_01_Check_Elements_Displayed() {
 
@@ -203,11 +208,14 @@ public class Topic_03_Exercise_Browser_WebElement {
 		}
 
 	}
-
+	
+	
 	@AfterClass
 	public void afterClass() {
 
 		// quit browser
 		driver.quit();
 	}
+		
+	
 }
