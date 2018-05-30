@@ -157,13 +157,13 @@ public class Topic_04_Dropdown_Textbox_TextArea {
 
 		// 7
 		WebElement custNameResult = driver.findElement(By.xpath("//input[@name='name']"));
-		custNameResult.click();
-		Assert.assertEquals(name, custNameResult.getAttribute("Value"));
+		
+		Assert.assertEquals(name, custNameResult.getAttribute("value"));
 		
 		
 		WebElement lastAddress = driver.findElement(By.xpath("//textarea[@name='addr']"));
 		lastAddress.click();
-		Assert.assertEquals(address, lastAddress.getAttribute("Value"));
+		Assert.assertEquals(address, lastAddress.getAttribute("value"));
 		
 		
 
@@ -206,7 +206,7 @@ public class Topic_04_Dropdown_Textbox_TextArea {
 
 	public int randomNumber() {
 		Random random = new Random();
-		int number = random.nextInt(999999);
+		int number = random.nextInt(10000);
 		return number;
 	}
 
