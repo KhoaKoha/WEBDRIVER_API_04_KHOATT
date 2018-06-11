@@ -1,10 +1,19 @@
 package selenium_api;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -146,26 +155,27 @@ public class Topic_06_User_InterAction {
 		driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
+
 		// 2 - Right click to element: 'right click me'
 		WebElement rightClickBtn = driver.findElement(By.xpath("//span[text()='right click me']"));
 		Actions action = new Actions(driver);
 		action.contextClick(rightClickBtn).perform();
-		
+
 		// 3 - Hover on element: 'Quit'
-		WebElement hoverQuitBefore = driver.findElement(By.xpath("//li[contains(@class,'context-menu-icon-quit')]"));		
+		WebElement hoverQuitBefore = driver.findElement(By.xpath("//li[contains(@class,'context-menu-icon-quit')]"));
 		action.moveToElement(hoverQuitBefore).perform();
-		
+
 		// 4 - Verify element Quit (visible + hover)
-		WebElement hoverQuitAfter = driver.findElement(By.xpath("//li[contains(@class,'context-menu-visible') and contains(@class,'context-menu-hover')]//span[text()='Quit']"));
+		WebElement hoverQuitAfter = driver.findElement(By.xpath(
+				"//li[contains(@class,'context-menu-visible') and contains(@class,'context-menu-hover')]//span[text()='Quit']"));
 		Assert.assertTrue(hoverQuitAfter.isDisplayed());
-		
+
 		// 5 - Click Quit
 		action.click(hoverQuitAfter).perform();
 		Alert quitAlert = driver.switchTo().alert();
 		String textAlert = quitAlert.getText();
 		Assert.assertEquals("clicked: quit", textAlert);
-		
+
 		// 6 - Accept Javascript alert
 		quitAlert.accept();
 
@@ -178,17 +188,17 @@ public class Topic_06_User_InterAction {
 		driver.get("http://demos.telerik.com/kendo-ui/dragdrop/angular");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
+
 		// 2 - Kéo hình tròn nhỏ vào hình tròn lớn
 		// WebElement textBefore = driver.findElement(By.xpath("//div[text()='Drag the
 		// small circle here.']")); (!!!)
-		
+
 		WebElement sourceElement = driver.findElement(By.xpath("//div[@id='draggable']"));
 		WebElement targetElement = driver.findElement(By.xpath("//div[@id='droptarget']"));
 		Actions action = new Actions(driver);
 		action.dragAndDrop(sourceElement, targetElement).build().perform();
 		action.release();
-		
+
 		// 3 - Verify message đã thay đổi: You did great!
 		WebElement textAfter = driver.findElement(By.xpath("//div[text()='You did great!']"));
 		// Assert.assertFalse(textBefore.isDisplayed());(!!!)
@@ -199,11 +209,12 @@ public class Topic_06_User_InterAction {
 	@Test
 	public void TC_08_DrapAndDropElement() {
 
-		// 1 - Truy cập vào trang: http://jqueryui.com/resources/demos/droppable/default.html
+		// 1 - Truy cập vào trang:
+		// http://jqueryui.com/resources/demos/droppable/default.html
 		driver.get("http://jqueryui.com/resources/demos/droppable/default.html");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		
+
 		// 2 - Kéo hình chữ nhật: Drag me to my target vào hình Drop here
 		WebElement textBeforeDrap = driver.findElement(By.xpath("//div[@id='droppable']//p[text()='Drop here']"));
 		Assert.assertTrue(textBeforeDrap.isDisplayed());
@@ -212,7 +223,7 @@ public class Topic_06_User_InterAction {
 		Actions action = new Actions(driver);
 		action.dragAndDrop(sourceElement, targetElement).build().perform();
 		action.release();
-		
+
 		// 3 - Verify message đã thay đổi: Dropped!
 		WebElement textAfterDrop = driver.findElement(By.xpath("//div[@id='droppable']/p[text()='Dropped!']"));
 		Assert.assertTrue(textAfterDrop.isDisplayed());
