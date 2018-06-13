@@ -6,8 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -18,15 +17,13 @@ public class Topic_08_Javascript_Executor {
 
 	@BeforeClass
 	public void beforeClass() {
-		// Khoi tai trinh duyet
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.ie.driver", ".\\driver\\IEDriverServer.exe");
+		 driver = new InternetExplorerDriver();
 
-		// System.setProperty("webdriver.chrome.driver",".\\driver\\chromedriver.exe");
-		// driver = new ChromeDriver();
 	}
 
 	@Test
-	public void TC_01_JavascriptExcecutor() {
+	public void TC_01_JavascriptExcecutor() throws Exception {
 		// 1 - Truy cập vào trang: http://live.guru99.com/
 		// 2 - Sử dụng JE để get domain của page. Verify domain = live.guru99.com
 		// 3 - Sử dụng JE để get URL của page. Verify URL = http://live.guru99.com/
@@ -45,22 +42,18 @@ public class Topic_08_Javascript_Executor {
 		driver.get("http://live.guru99.com/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-
 		String domain = (String) executeJSForBrowserElement("return document.domain;");
 		Assert.assertEquals("live.guru99.com", domain);
-
 		String pageURL = (String) executeJSForBrowserElement("return document.URL;");
 		Assert.assertEquals("http://live.guru99.com/", pageURL);
 
 		WebElement mobileLink = driver.findElement(By.xpath("//a[text()='Mobile']"));
 		executeByJSForWebElement(mobileLink);
-
 		WebElement buttonAdd = driver.findElement(By.xpath("//h2[@class='product-name']/a[@title='Samsung Galaxy']/../following-sibling::div[@class='actions']/button"));
 		executeByJSForWebElement(buttonAdd);
 
 		String message = (String) executeJSForBrowserElement("return document.documentElement.innerText;");
 		Assert.assertTrue(message.contains("Samsung Galaxy was added to your shopping cart."));
-
 		WebElement privacyLink = driver.findElement(By.xpath("//a[text()='Privacy Policy']"));
 		executeByJSForWebElement(privacyLink);
 
@@ -77,11 +70,11 @@ public class Topic_08_Javascript_Executor {
 
 		String domainGuru = (String) executeJSForBrowserElement("return document.domain;");
 		Assert.assertEquals("demo.guru99.com", domainGuru);
-
+		Thread.sleep(1500);
 	}
 
 	@Test
-	public void TC_02_RemoveAttribute() {
+	public void TC_02_RemoveAttribute() throws Exception {
 
 		// 1 - Truy cập vào trang:
 		// https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_input_disabled
@@ -100,13 +93,14 @@ public class Topic_08_Javascript_Executor {
 
 		WebElement lastnameTextbox = driver.findElement(By.xpath("//input[@name='lname']"));
 		removeAttributeInDOM(lastnameTextbox, "disabled");
-		lastnameTextbox.sendKeys("Hoa Nguyen");
-
+		lastnameTextbox.sendKeys("Anh KHoa");
+		Thread.sleep(1500);
 		WebElement submitBtn = driver.findElement(By.xpath("//input[@value='Submit']"));
 		submitBtn.click();
 
-		WebElement mgsSuccess = driver.findElement(By.xpath("//div[contains(text(),\"Hoa Nguyen\")]"));
+		WebElement mgsSuccess = driver.findElement(By.xpath("//div[contains(text(),\"Anh KHoa\")]"));
 		Assert.assertTrue(mgsSuccess.isDisplayed());
+		Thread.sleep(1500);
 	}
 
 	public Object executeJSForBrowserElement(String javaSript) {

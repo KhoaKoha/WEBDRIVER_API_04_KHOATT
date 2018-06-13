@@ -13,16 +13,15 @@ public class Topic_00_TestcaseTemplate {
 	@BeforeClass
 	public void beforeClass() {
 		// Khoi chay tren IE
-		
-		// System.setProperty("webdriver.ie.driver", ".\\drivers\\IEDriverServer.exe");
-		// WebDriver driver = new InternetExplorerDriver();
-		
+
+		// System.setProperty("webdriver.ie.driver", ".\\driver\\IEDriverServer.exe");
+		// driver = new InternetExplorerDriver();
+
 		// Khoi chay tren Chrome
-		
+
 		// System.setProperty("webdriver.chrome.driver", ".\\driver\\chromedriver.exe");
 		// driver = new ChromeDriver();
-		
-		
+
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
