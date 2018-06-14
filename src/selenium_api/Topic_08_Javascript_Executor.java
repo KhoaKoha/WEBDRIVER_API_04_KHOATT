@@ -18,7 +18,7 @@ public class Topic_08_Javascript_Executor {
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.ie.driver", ".\\driver\\IEDriverServer.exe");
-		 driver = new InternetExplorerDriver();
+		driver = new InternetExplorerDriver();
 
 	}
 
@@ -142,6 +142,13 @@ public class Topic_08_Javascript_Executor {
 			return null;
 		}
 	}
+
+	public boolean checkAnyImageLoaded(WebElement img) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return (boolean) js.executeScript(" return arguments[0].complete && " + "typeof arguments[0].naturalWidth != 'undefiend' && arguments[0].naturalWidth>0", img);
+	}
+	
+	
 
 	@AfterClass
 	public void afterClass() {
