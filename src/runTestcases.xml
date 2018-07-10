@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="LIVE GURU" parallel="false">
+<!--<groups>
+<run>
+<include name = "group2" />
+<include name = "group1" />
+</run>
+</groups>-->
+  <test name="Run on chrome">
+  <parameter name ="browser" value = "chrome" />
+  <parameter name ="user" value = "automationvalid_01@gmail.com" />
+  <parameter name ="password" value = "111111" />
+    <classes>
+     <!--<class name="selenium_TestNG.TestNG_00_Annotations"/>-->
+      <!--<class name="selenium_TestNG.TestNG_01_Group"/>-->
+      <!--<class name="selenium_TestNG.TestNG_02_Priority_Skip"/>-->
+      <!--<class name="selenium_TestNG.TestNG_03_Data_provider"/>-->
+       <class name="selenium_TestNG.TestNG_04_MultiBrowser_Parameters"/>
+    </classes>
+  </test> <!-- Test -->
+  
+    <test name="Run on firefox">
+  <parameter name ="browser" value = "firefox" />
+  <parameter name ="user" value = "automationvalid_01@gmail.com" />
+  <parameter name ="password" value = "111111" />
+    <classes>
+    <class name="selenium_TestNG.TestNG_04_MultiBrowser_Parameters"/>
+    </classes>
+  </test> <!-- Test -->
+  
+      <test name="Run on chrome headless">
+  <parameter name ="browser" value = "chrome_headless" />
+  <parameter name ="user" value = "automationvalid_01@gmail.com" />
+  <parameter name ="password" value = "111111" />
+    <classes>
+    <class name="selenium_TestNG.TestNG_04_MultiBrowser_Parameters"/>
+    </classes>
+  </test> <!-- Test -->
+    
+</suite> <!-- Suite -->
